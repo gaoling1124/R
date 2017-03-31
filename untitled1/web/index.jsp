@@ -17,6 +17,30 @@
   </head>
   <body>
 
+  <form action="springmvc/testPojo" method="post"  >
+    username:<input type="text" name="username"/>
+    <br><br>
+    password:<input type="password " name="password"/>
+    <br><br>
+    email:<input type="text" name="email"/>
+    <br><br>
+    age:<input type="text" name="age"/>
+    <br><br>
+    city:<input type="text" name="address.city"/>
+    <br><br>
+    province:<input type="text" name="address.province"/>
+    <br><br>
+    <input type=submit value="Submit"/>
+  <br><br>
+  </form>
+
+
+  <a href="/springmvc/testCookieValue">Test CookieValue</a>
+  <br><br>
+
+  <a href="/springmvc/testRequestHeader">Test RequestHeader</a>
+  <br><br>
+
   <a href="/springmvc/testRequestParam?username=atguigu&age=11">Test RequestParam</a>
   <br><br>
 

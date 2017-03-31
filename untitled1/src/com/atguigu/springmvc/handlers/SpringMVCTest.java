@@ -1,12 +1,10 @@
 package com.atguigu.springmvc.handlers;
 
 //import jdk.internal.org.objectweb.asm.tree.analysis.Value;
-import jdk.internal.org.objectweb.asm.tree.analysis.Value;
+//import jdk.internal.org.objectweb.asm.tree.analysis.Value;
+import com.atguigu.springmvc.entities.User;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * Created by gl on 2017/3/25.
@@ -16,8 +14,28 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class SpringMVCTest {
 
     private static final String SUCCESS="success";
+    private static final String HAPPY="happy";
+    private static final String SHEZHI="shezhi";
 
 
+    @RequestMapping("/testPojo")
+    public String testPojo(User user ){
+        System.out.println("testPojo: "+user);
+        return SHEZHI   ;
+    }
+
+    @RequestMapping("/testCookieValue")
+    public String testCookieValue(@CookieValue("JSESSIONID")String sessionID){
+        System.out.println("testCookieValue: sessionID: "+sessionID );
+        return HAPPY ;
+    }
+
+    @RequestMapping ("/testRequestHeader")
+    public String testRequestHeader(@RequestHeader(value="Accept-Language")String al){
+        System.out.println("testRequestHeader,\n" +
+                "   Accept-Language:"+al);
+        return HAPPY  ;
+    }
 
 
     @RequestMapping (value ="/testRequestParam")
