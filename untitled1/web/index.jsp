@@ -16,6 +16,17 @@
     <title>$Title$</title>
   </head>
   <body>
+  <a href="/springmvc/testSessionAttributes">Test Attributes</a>
+  <br><br>
+
+  <a href="/springmvc/testMap">Test Map</a>
+  <br><br>
+
+  <a href="/springmvc/testModelAndView">Test ModelAndView</a>
+  <br><br>
+
+  <a href="/springmvc/testServletAPI">Test ServletAPI</a>
+  <br><br>
 
   <form action="springmvc/testPojo" method="post"  >
     username:<input type="text" name="username"/>
@@ -30,7 +41,7 @@
     <br><br>
     province:<input type="text" name="address.province"/>
     <br><br>
-    <input type=submit value="Submit"/>
+    <input type=submit value="确定"/>
   <br><br>
   </form>
 

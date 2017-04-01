@@ -11,10 +11,26 @@
     <title>Title</title>
     <style>
         h1{text-align:center;color: cornflowerblue }
+        p{text-align:center;color: blue }
     </style>
 </head>
 <body >
     <h1>张杰么么哒</h1>
+    <p>张杰最帅</p>
+    time:${requestScope.time}
+    <br><br>
+    names:${requestScope.names}
+    <br><br>
+    request user:${requestScope.user}
+    <br><br>
+    session user:${sessionScope.user}
+    <br><br>
+
+    request school:${requestScope.school}
+    <br><br>
+    session school:${sessionScope.school}
+    <br><br>
+
 </body>
 </html>
 
