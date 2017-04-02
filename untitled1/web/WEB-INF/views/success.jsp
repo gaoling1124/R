@@ -21,6 +21,7 @@
     <br><br>
     names:${requestScope.names}
     <br><br>
+
     request user:${requestScope.user}
     <br><br>
     session user:${sessionScope.user}
@@ -30,6 +31,10 @@
     <br><br>
     session school:${sessionScope.school}
     <br><br>
+
+    user user:${requestScope.user}
+    <br><br>
+
 
 </body>
 </html>
