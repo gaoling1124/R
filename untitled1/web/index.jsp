@@ -17,6 +17,8 @@
   </head>
   <body>
 
+  <a href="springmvc/testRediret">Test Rediret</a>
+  <br><br>
 
   <a href="springmvc/testView">Test View</a>
   <br><br>

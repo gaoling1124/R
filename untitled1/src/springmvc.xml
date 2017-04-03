@@ -17,7 +17,7 @@
 
     <!--配置视图 BeanNameViewResolver 解析器:使用视图的名字来解析视图-->
     <!--通过oder 属性来定义视图解析器的优先级，oder值越小优先级越高-->
-    <bean class="org.springframework.web.servlet.view.BeanNameViewResolver">
+    <bean class="org.springframe work.web.servlet.view.BeanNameViewResolver">
         <property name="order" value="100"></property>
 
     </bean>

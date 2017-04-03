@@ -24,6 +24,12 @@ public class SpringMVCTest {
     private static final String HAPPY="happy";
     private static final String SHEZHI="shezhi";
 
+    @RequestMapping("/testRediret")
+    public String testRediret(){
+         System.out.println("testRediret");
+         return "rediret:/index.jsp";
+    }
+
     @RequestMapping("/testView")
     public String testView(){
         System.out.println("teseView");
