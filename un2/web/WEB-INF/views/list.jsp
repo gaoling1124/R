@@ -12,8 +12,28 @@
 <html>
 <head>
     <title>Title</title>
+    <script type="text/javascript" src="scripts/jquery-1.9.1.min.js"></script>
+    <script type="text/javascript">
+        $(".delete").click(function () {
+            var href=$(this).attr("href");
+            $("form").attr("action",href).submit();
+            return false;
+
+        });
+        $(function () {
+//            alert("hello jQuery");
+            $(".delete").click(function () {
+                var href=$(this).attr("href");
+                $("form").attr("action",href).submit();
+                return false;
+        })
+    </script>
 </head>
 <body>
+
+  <form action="" method="POST">
+      <input type="hidden" name="_method" value="DELETE"/>
+  </form>
 
   <c:if test="${empty requestScope.employees}">
       <%--没有任何员工消息--%>
@@ -38,7 +58,7 @@
                 <%--<gender是否等于0，若是输出female，否则输出male--%>
                 <td>${emp.department.departmentName}</td>
                 <td><a href="">Edit</a></td>
-                <td><a href="">Delete</a></td>
+                <td><a class="delete" href="emp/${emp.id}">Delete</a></td>
             </tr>
         </c:forEach>
     </table>

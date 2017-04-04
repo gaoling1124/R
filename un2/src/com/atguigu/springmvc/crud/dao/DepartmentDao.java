@@ -14,7 +14,7 @@ public class DepartmentDao {
 	private static Map<Integer, Department> departments = null;
 	
 	static{
-		departments = new HashMap<Integer, Department>();
+		departments=new HashMap<Integer,Department>();
 		
 		departments.put(101, new Department(101, "D-AA"));
 		departments.put(102, new Department(102, "D-BB"));
@@ -24,10 +24,12 @@ public class DepartmentDao {
 	}
 	
 	public Collection<Department> getDepartments(){
+
 		return departments.values();
 	}
 	
 	public Department getDepartment(Integer id){
+
 		return departments.get(id);
 	}
 	

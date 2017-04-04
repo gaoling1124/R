@@ -5,6 +5,7 @@ import com.atguigu.springmvc.crud.dao.EmployeeDao;
 import com.atguigu.springmvc.crud.entities.Employee;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -22,16 +23,28 @@ public class EmployeeHandler {
     @Autowired
     private DepartmentDao departmentDao;
 
-    @RequestMapping(value="emp",method = RequestMethod.GET)
+    @RequestMapping(value = "/emp/{id}",method = RequestMethod.DELETE)
+    public String detele(@PathVariable("id") Integer id){
+        employeeDao.delete(id);
+        return "redirect:/emps";
+    }
+
+    @RequestMapping(value="/emp",method = RequestMethod.POST)
+    public String sava(Employee employee){
+        employeeDao.save(employee);
+        return "redirect:/emps";
+    }
+
+    @RequestMapping(value="/emp",method = RequestMethod.GET)
     public  String input(Map<String,Object>map){
         map.put("department",departmentDao.getDepartments());
-        map.put("emploee",new Employee());
+        map.put("employee",new Employee());
         return "input";
     }
 
     @RequestMapping("/emps")
     public String list(Map<String,Object>map){
-        System.out.println("00000");
+
         map.put("employees",employeeDao.getAll());
         return "list";
     }

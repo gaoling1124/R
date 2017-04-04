@@ -14,7 +14,7 @@
 </head>
 <body>
     <%--使用form标签 可以更快速的开发出表单页面，而且可以更方便的进行表单值的回显--%>
- <form:form action="emp" method="POST" modelAttribute="emploee">
+ <form:form action="emp" method="POST" modelAttribute="employee">
      LastName:<form:input path="lastName"/>
      <%--path属性对应html表单标签的name 属性值--%>
      <br>
@@ -31,7 +31,7 @@
      <br>
      Department:<%--@elvariable id="departments" type="java.util.List"--%>
      <form:select path="department.id" items="${departments }"
-                            itemLabel="departmentName" itemValue="id">
+                            itemLabel="department" itemValue="id">
      </form:select>
      <br>
      <input type="submit" value="提交"/>
