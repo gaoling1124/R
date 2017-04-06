@@ -20,22 +20,30 @@ public class EmployeeHandler {
     @Autowired
     private EmployeeDao employeeDao;//显示所有的员工信息
 
-    @Autowired
-    private DepartmentDao departmentDao;
 
-    @RequestMapping(value = "/emp/{id}",method = RequestMethod.DELETE)
-    public String detele(@PathVariable("id") Integer id){
+    @Autowired
+    private DepartmentDao departmentDao;//显示部门消息
+
+//    @RequestMapping(value="/emp/{id}",method =RequestMethod.GET)
+//    public String input(@PathVariable("id") Integer id,Map<String,Object>map){
+//        map.put("employee",employeeDao.get(id));
+//        map.put("departments",departmentDao.getDepartments());
+//        return "input";
+//    }
+
+    @RequestMapping(value="/emp/{id}",method = RequestMethod.DELETE)
+    public String delete(@PathVariable("id") Integer id){
         employeeDao.delete(id);
         return "redirect:/emps";
     }
 
     @RequestMapping(value="/emp",method = RequestMethod.POST)
-    public String sava(Employee employee){
+    public String save(Employee employee){
         employeeDao.save(employee);
         return "redirect:/emps";
     }
 
-    @RequestMapping(value="/emp",method = RequestMethod.GET)
+    @RequestMapping(value="/emp/{id}",method = RequestMethod.GET)
     public  String input(Map<String,Object>map){
         map.put("department",departmentDao.getDepartments());
         map.put("employee",new Employee());

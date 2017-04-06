@@ -30,8 +30,8 @@
      Gender:<form:radiobuttons path="gender" items="${genders}" delimiter="<br>"/>
      <br>
      Department:<%--@elvariable id="departments" type="java.util.List"--%>
-     <form:select path="department.id" items="${departments }"
-                            itemLabel="department" itemValue="id">
+     <form:select path="department.id" items="${departments}"
+                            itemLabel="departmentName" itemValue="id">
      </form:select>
      <br>
      <input type="submit" value="提交"/>

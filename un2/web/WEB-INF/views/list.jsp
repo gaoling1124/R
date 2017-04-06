@@ -12,21 +12,25 @@
 <html>
 <head>
     <title>Title</title>
+    <%--springmvc 处理静态资源
+     RES风格的资源URL 不希望带.html 或.do后缀，
+     若将DispatcherServket 请求映射配置为/,则SpringMVC将捕获WEB容器的所有请求，
+     包括静态资源的请求（如图片），SpringMVC 将会把他们当成一个普通的请求处理，
+     因找不到对应处理器将导致错误
+     解决：在SpringMVC的配置文件中配置<mvc:default-servlet-handler/>--%>
+
     <script type="text/javascript" src="scripts/jquery-1.9.1.min.js"></script>
     <script type="text/javascript">
-        $(".delete").click(function () {
-            var href=$(this).attr("href");
-            $("form").attr("action",href).submit();
-            return false;
-
-        });
-        $(function () {
-//            alert("hello jQuery");
+        $(function() {
             $(".delete").click(function () {
-                var href=$(this).attr("href");
-                $("form").attr("action",href).submit();
+                var href = $(this).attr("href");
+                $("form").attr("action", href).submit();
                 return false;
+
+            })
         })
+
+
     </script>
 </head>
 <body>
@@ -36,7 +40,7 @@
   </form>
 
   <c:if test="${empty requestScope.employees}">
-      <%--没有任何员工消息--%>
+      没有任何员工消息
   </c:if>
 <c:if test="${!empty requestScope.employees}">
     <table border="1" cellpadding="10" cellspacing="0">
@@ -57,7 +61,7 @@
                 <td>${emp.gender==0?'female':'male'}</td>
                 <%--<gender是否等于0，若是输出female，否则输出male--%>
                 <td>${emp.department.departmentName}</td>
-                <td><a href="">Edit</a></td>
+                <td><a href="emp/${emp.id}">Edit</a></td>
                 <td><a class="delete" href="emp/${emp.id}">Delete</a></td>
             </tr>
         </c:forEach>
